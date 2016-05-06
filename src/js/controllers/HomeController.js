@@ -1,9 +1,12 @@
 
-var HomeController = function(){
+var HomeController = function(ProductService){
   var vm = this;
-  
-  vm.title = 'Home'
+  vm.products = ProductService.getAllProducts();
+  vm.cart = ProductService.getCart();
+  vm.addToCart = ProductService.addToCart;
+
 };
 
-HomeController.$inject = [];
+
+HomeController.$inject = ['ProductService'];
 module.exports = HomeController;

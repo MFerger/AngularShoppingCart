@@ -1,4 +1,3 @@
-
 var Router = (
   function($stateProvider, $urlRouterProvider, $locationProvider){
 

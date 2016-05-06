@@ -1,17 +1,58 @@
 <h1 ng-bind="vm.title"></h1>
 
-<section class="outer-box flex-row">
+<span>Cart: {{!vm.cart.length ? 'Empty' : vm.cart.length}}</span><br>
+<label for="Search">Search for a Product</label>
+<input type="text" name="Search" ng-model='vm.name' placeholder="Enter a name of a product">
+<br>
 
-  <article class="inner-box box col1-2">1/2</article>
-  <article class="inner-box box col1-2">1/2</article>
 
-  <article class="inner-box box col1-3">1/3</article>
-  <article class="inner-box box col1-3">1/3</article>
-  <article class="inner-box box col1-3">1/3</article>
+<label for="categories">Select a category </label>
+<select id='categories' ng-model='vm.categories.categories'>
+  <option value='cold'>Cold</option>
+  <option value='awesome'>Awesome</option>
+  <option value='dry'>Dry</option>
+  <option value='hot'>Hot</option>
+  <option value='lucid'>Lucid</option>
+  <option value='warm'>Warm</option>
+  <option value='winter'>Winter</option>
+  <option value='spring'>Spring</option>
+</select>
+<br>
 
-  <article class="inner-box box col1-4">1/4</article>
-  <article class="inner-box box col1-4">1/4</article>
-  <article class="inner-box box col1-4">1/4</article>
-  <article class="inner-box box col1-4">1/4</article>
+<label for="sortPrices">Sort by price </label>
+<select id='sortPrices' ng-model='vm.prices'>
+  <option value="price">Lowest</option>
+  <option value="-price">Highest</option>
+</select>
+<section ng-repeat='p in vm.products | filter: vm.name :p.name | filter: vm.categories | orderBy: vm.prices'>
+  <article class="flex-row">
+    <div class="inner-box col1-3">
+      <p ng-bind='p.name'></p><br>
+      <img ng-src='{{p.imageUrl}}'>
+    </div>
+    <div class="inner-box col2-3">
+      <p><strong>Ingredients:</strong> {{p.ingredients}}</p>
+      <p><strong>Caffeine:</strong> {{p.caffeineScale}}</p>
+      <p><strong>Price:</strong> {{p.price | currency}}</p>
+      <p><strong>Available:</strong> {{p.inStock}}</p>
+      <p><strong>Rating:</strong> {{p.rating}}</p>
+      <p><strong>Types:</strong> {{p.categories}}</p>
 
+      <label for="quantity">Select a quantity</label>
+      <select id="quantity" ng-model='quantity'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select><br>
+
+      <button type="button" ng-click='vm.addToCart(quantity, p._id)'>Add To Cart</button>
+    </div>
+  </article>
 </section>

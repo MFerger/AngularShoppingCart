@@ -1,7 +1,7 @@
-var gulp       = require('gulp'),
-    sass       = require('gulp-sass'),
-    browserify = require('gulp-browserify'),
-    injectHTML = require('gulp-js-html-inject');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var browserify = require('gulp-browserify');
+var injectHTML = require('gulp-js-html-inject');
 
 gulp.task('angular.dev', function(){
   gulp.src('src/js/app.js')
