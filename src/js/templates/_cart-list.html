@@ -1,0 +1,42 @@
+<p>Total of Cart: {{vm.total/100 | currency}}</p>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Subtotal</th>
+        <th>Quantity</th>
+        <th>Delete Item</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="x in vm.cart track by $index">
+
+        <td>
+          <h3 ng-bind="x.item.name"></h3>
+          <img class="img-rounded" style="width: 30%" ng-src="{{x.item.imageUrl}}" alt="p.name" />
+        </td>
+
+        <td>
+          <p class="infoContent">{{(x.item.price*x.qty)/100 | currency}}</p>
+        </td>
+
+        <td>
+          <span class="infoContent">{{x.qty}}</span>
+          <button ng-click="vm.increaseQty(x.item._id)">+</button>
+          <button ng-click="vm.decreaseQty(x.item._id)">-</button>
+        </td>
+
+        <td>
+          <button class="btn btn-danger" ng-click="vm.removeFromCart(x.item._id)">
+            X
+          </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,35 @@
+<section ng-repeat='p in products | filter: searchTheName :p.name | filter: categories | orderBy: prices'>
+  <article class="flex-row">
+    <div class="inner-box col1-3">
+      <p ng-bind='p.name'></p><br>
+      <img ng-src='{{p.imageUrl}}'>
+    </div>
+    <div class="inner-box col2-3">
+      <p><strong>Ingredients:</strong> {{p.ingredients}}</p>
+      <p><strong>Caffeine:</strong> {{p.caffeineScale}}</p>
+      <p><strong>Price:</strong> {{p.price/100 | currency}}</p>
+      <p><strong>Available:</strong> <span ng-class='isInStock(p.inStock)'>{{p.inStock | checkmark}}</span></p>
+      <p><strong>Rating:</strong> {{p.rating}}</p>
+      <p><strong>Types:</strong></p>
+      <ul>
+        <li ng-repeat='p in p.categories'>{{p}}</li>
+      </ul>
+
+      <label for="quantity">Select a quantity</label>
+      <select id="quantity" ng-model='quantity'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select><br>
+
+      <button type="button" ng-click='addToCart(quantity, p)'>Add To Cart</button>
+    </div>
+  </article>
+</section>
