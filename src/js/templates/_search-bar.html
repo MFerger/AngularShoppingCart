@@ -1,12 +1,32 @@
-<div>
+<span>
+  <h1 class='text-center orange large'>
+    <i><strong>Welcome to MEAN Tea</strong>
+    </h1>
+  </span>
 
-<span>Cart: {{!cartQtyTotal ? 'Empty' : cartQtyTotal}}</span><br>
-<label for="Search">Search for a Product</label>
-<input type="text" name="Search" ng-model='searchTheName' placeholder="Enter a name of a product">
-<br>
+<div class='custom-nav-bar'></div>
 
-<label for="categories">Select a category </label>
-<select id='categories' ng-model='categories'>
+
+<div class="customContainer">
+
+  <div class="input-group">
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-secondary dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort By: Name
+      </button>
+    </div>
+    <input type="text" class="form-control searchBox" name="Search" ng-model='searchTheName' aria-label="Text input with dropdown button">
+  </div><br>
+
+  <label class='priceLabel'>Sort By Price</label>
+  <select class="c-select price" ng-model='prices'>
+    <option value="price">Lowest</option>
+    <option value="-price">Highest</option>
+  </select>
+
+<label class='categoryLabel'>Sort by Category</label>
+<select class='c-select categories' ng-model='categories'>
   <option value='cold'>Cold</option>
   <option value='awesome'>Awesome</option>
   <option value='dry'>Dry</option>
@@ -16,12 +36,11 @@
   <option value='winter'>Winter</option>
   <option value='spring'>Spring</option>
 </select>
-<br>
 
-<label for="sortPrices">Sort by price </label>
+<!-- <label for="sortPrices">Sort by price </label>
 <select id='sortPrices' ng-model='prices'>
   <option value="price">Lowest</option>
   <option value="-price">Highest</option>
-</select>
-
+</select> -->
+<button type="button" class="btn btn-danger checkoutButton" ui-sref="cart" >Checkout | Cart: {{!cartQtyTotal ? 'Empty' : cartQtyTotal}}</a></button>
 </div>

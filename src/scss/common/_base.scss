@@ -1,6 +1,68 @@
+body {
+  background-color: rgb(240, 234, 214);
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+img {
+  width: 200px;
+  // height: 125px;
+}
 .green {
   color: green;
 }
 .red {
   color: red;
+}
+.orange {
+  color: orange;
+}
+.white {
+  color: white;
+}
+.large {
+  font-size: 50px;
+}
+.right {
+  float: right;
+}
+.custom-nav-bar {
+  width: 95%;
+  margin-left: 2.5%;
+  height: 50px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.customContainer {
+  padding: 2.5%;
+}
+.checkoutButton {
+  float: right;
+}
+.searchBox {
+  width: 50%;
+}
+.text-center {
+  text-align: center;
+}
+.categories {
+  margin-left: 1%;
+}
+.prices {
+  margin-left: 1%;
+  margin-right: 3%;
+}
+.priceLabel {
+  padding-right: 10px;
+}
+.categoryLabel {
+  padding-left: 5%;
+}
+table {
+      img {
+        width: 80%;
+      }
+    }
+.quantityBox {
+  margin-right: 2%;
 }
